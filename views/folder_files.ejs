@@ -1,0 +1,21 @@
+<h1>Files in <%= folder.name %></h1>
+
+<form action="/files/upload/<%= folder.id %>" method="POST" enctype="multipart/form-data">
+  <input type="file" name="file" required />
+  <button type="submit">Upload</button>
+</form>
+
+<ul>
+  <% folder.files.forEach(file => { %>
+    <li>
+      <strong><%= file.name %></strong>
+      <a href="/files/<%= file.id %>/download">
+        <button>Download</button>
+      </a>
+      <strong>Size: <%= (file.size / 1024).toFixed(1) %> KB </strong>
+      <strong>Upload date: <%= file.createdAt.toLocaleString() %></strong>
+    </li>
+  <% }) %>
+</ul>
+
+<a href="/folders">Back to Folders</a>

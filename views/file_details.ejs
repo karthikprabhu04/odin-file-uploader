@@ -1,0 +1,13 @@
+<h1>File Details</h1>
+
+<p><strong>Name:</strong> <%= file.name %></p>
+<p><strong>Size:</strong> (cannot display unless stored in DB)</p>
+<p><strong>Uploaded Path:</strong> <%= file.path %></p>
+
+<a href="/files/<%= file.id %>/download">
+  <button>Download</button>
+</a>
+
+<br><br>
+
+<a href="/files/folder/<%= file.folderId %>">Back to Folder</a>
